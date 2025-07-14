@@ -2,7 +2,20 @@ setup:
     addons:
       - plan: heroku-postgresql
         as: DATABASE
+      - plan: heroku-redis:mini
+        as: REDIS
 
 build:
     docker:
         web: Dockerfile
+        worker: Dockerfile
+
+run:
+  web: bash /entrypoint.sh
+  worker:
+    command:
+      - bash
+      - -c
+      - |
+        export WORKER_MODE=true
+        bash /entrypoint.sh
