@@ -10,10 +10,4 @@ build:
 
 run:
   web: bash /entrypoint.sh
-  worker:
-    command:
-      - bash
-      - -c
-      - |
-        export WORKER_MODE=true
-        bash /entrypoint.sh
+  worker: bash /entrypoint.sh worker

@@ -24,10 +24,10 @@ export DB_POSTGRESDB_PASSWORD=$N8N_DB_PASSWORD
 
 
 # ─── Start Process ─────────────────────────────────────────────
-if [ "$WORKER_MODE" = "true" ]; then
-  echo "Starting n8n in WORKER mode..."
+if [ "$1" = "worker" ]; then
+  echo "Starting n8n worker..."
   n8n worker
 else
-  echo "Starting n8n in MAIN (web) mode..."
-  n8n start
+  echo "Starting n8n web..."
+  n8n
 fi
