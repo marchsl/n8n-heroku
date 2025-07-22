@@ -22,19 +22,6 @@ export DB_POSTGRESDB_DATABASE=$N8N_DB_DATABASE
 export DB_POSTGRESDB_USER=$N8N_DB_USER
 export DB_POSTGRESDB_PASSWORD=$N8N_DB_PASSWORD
 
-# ─── Parse REDIS_URL (Heroku Redis) for Queue Mode ─────────────
-if [ -n "$REDIS_URL" ]; then
-  PREFIX="N8N_REDIS_" parse_url "$REDIS_URL"
-  REDIS_HOST="$(echo $N8N_REDIS_HOSTPORT | cut -d':' -f1)"
-  REDIS_PORT="$(echo $N8N_REDIS_HOSTPORT | cut -d':' -f2)"
-  export QUEUE_BULL_REDIS_HOST="$REDIS_HOST"
-  export QUEUE_BULL_REDIS_PORT="$REDIS_PORT"
-  echo "Redis configured at $QUEUE_BULL_REDIS_HOST:$QUEUE_BULL_REDIS_PORT"
-fi
-
-# ─── Enable Queue Mode ─────────────────────────────────────────
-export N8N_EXECUTIONS_MODE=queue
-export N8N_QUEUE_MODE=true
 
 # ─── Start Process ─────────────────────────────────────────────
 if [ "$WORKER_MODE" = "true" ]; then
