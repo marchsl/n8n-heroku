@@ -22,12 +22,5 @@ export DB_POSTGRESDB_DATABASE=$N8N_DB_DATABASE
 export DB_POSTGRESDB_USER=$N8N_DB_USER
 export DB_POSTGRESDB_PASSWORD=$N8N_DB_PASSWORD
 
-
-# ─── Start Process ─────────────────────────────────────────────
-if [ "$1" = "worker" ]; then
-  echo "Starting n8n worker..."
-  n8n worker
-else
-  echo "Starting n8n web..."
-  n8n
-fi
+# kickstart nodemation
+n8n
