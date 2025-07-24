@@ -30,5 +30,10 @@ export QUEUE_MODE_REDIS_PORT="$REDIS_PORT"
 export QUEUE_MODE_REDIS_PASSWORD="$N8N_REDIS_PASSWORD"
 echo "Redis configured at $QUEUE_MODE_REDIS_HOST:$QUEUE_MODE_REDIS_PORT"
 
-# kickstart nodemation
-n8n
+
+if [ "$1" = "worker" ]; then
+  echo "Starting n8n worker..."
+  n8n worker
+else
+  n8n
+fi
