@@ -9,4 +9,4 @@ build:
         worker: Dockerfile
 
 run:
-  worker: './entrypoint.sh worker'
+  worker: /bin/sh -c '/entrypoint.sh worker'
