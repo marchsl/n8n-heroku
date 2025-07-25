@@ -7,3 +7,6 @@ build:
     docker:
         web: Dockerfile
         worker: Dockerfile
+
+run:
+  worker: './entrypoint.sh worker'
