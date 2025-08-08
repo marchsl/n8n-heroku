@@ -6,7 +6,7 @@ setup:
 build:
     docker:
         web: Dockerfile
-        worker: Dockerfile
 
 run:
-  worker: /bin/sh -c '/entrypoint.sh worker'
+  web: n8n start
+  worker: n8n worker
