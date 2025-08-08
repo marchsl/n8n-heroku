@@ -6,6 +6,7 @@ setup:
 build:
     docker:
         web: Dockerfile
+        worker: Dockerfile
 
 run:
   web: n8n start
