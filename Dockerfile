@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y \
 RUN npm install -g n8n
 
 # Create n8n user
-RUN useradd -m -s /bin/bash node
+# RUN useradd -m -s /bin/bash node
 
 USER node
 WORKDIR /home/node
