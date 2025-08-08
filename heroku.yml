@@ -9,5 +9,5 @@ build:
         worker: Dockerfile
 
 run:
-  web: n8n start
-  worker: n8n worker
+  web: "n8n start"
+  worker: "n8n worker"
